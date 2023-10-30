@@ -1,0 +1,119 @@
+
+Questao 1) Escreva um algaritmo de recursividade para cada uma das alternativas
+
+a) def S(n):
+    if n == 1:
+      return 10
+    else:
+      return S(n - 1) + 10
+
+
+b) def A(n):
+      if n == 1:
+        return 2
+      else:
+        return A(n - 1)**-1 
+
+c) def B(n):
+      if n == 1:
+        return 1
+      else:
+        return B(n - 1) + n * n
+
+
+d) def P(n):
+      if n == 1:
+        return 1
+      else:
+        return n^2 * P(n - 1) + n - 1
+
+e) def D(n):
+      if n == 1:
+        return 3
+      elif n ==  2:
+        return 5
+      else:
+        return (n - 1) * D(n - 1) + (n - 2) * D(n - 2)
+
+f) def W(n):
+      if n == 1:
+        return 2
+      elif n == 2:
+        return 5
+      else:
+        return W(n - 1) * W(n - 2)
+
+g) def T(n):
+      if n == 1:
+        return 1
+      elif n ==2:
+        return 2
+      elif n == 3:
+        return 3
+      else:
+        return T(n - 1) + 2 * T(n - 2) + 3 * T(n - 3)
+
+
+
+Questao 3) Uma coleção T de números é definida recursivamente por:
+2 pertence T. Se X pertence T, então X+3 pertence T e 2*X pertence T Quais dos seguintes números pertencem a T? 6 , 7 , 19 , 12. Faça um programa recursivo para demonstrar
+
+
+def inserido_T(numero):
+  if numero == 2:
+      return True
+  elif numero < 2:
+      return False
+  elif numero % 2 == 0:
+      return inserido_T(numero // 2)
+  else:
+      return inserido_T(numero - 3)
+
+numeros_checar = [6, 7, 19, 12]
+
+for numero in numeros_checar:
+  if inserito_T(numero):
+      print(f"{numero} pertence a T.")
+  else:
+      print(f"{numero} não pertence a T.")
+
+
+
+Questao 4)Quais dos seguintes números pertencem a M? 6 , 9 , 16 , 21 , 26 , 54 , 72 , 218
+
+
+def inserido_M(numero):
+  if numero == 2 or numero == 3:
+      return True
+  if numero < 2:
+      return False
+  for i in range(2, numero):
+      if inserido_M(i) and inserido_M(number // i):
+          return True
+  return False
+
+numeros_checar = [6, 9, 16, 21, 26, 54, 72, 218]
+
+for numero in numeros_checar:
+  if inserido_M(numero):
+      print(f"{numero} pertence a M.")
+  else:
+      print(f"{numero} não pertence a M.")
+
+
+Questao 5) Quais das seguintes cadeias pertencem a S? a , ab , aba , aaab , bbbbb
+
+def inserido_S(letra):
+  if letra == "a" or letra == "b":
+      return True
+  if letra[-1] == "b" and inserido_S(letra[:-1]):
+      return True
+  return False
+
+letra_checar = ["a", "ab", "aba", "aaab", "bbbbb"]
+
+for letra in letras_checar:
+  if inserido_S(letras):
+      print(f'"{letra}" pertence a S.')
+  else:
+      print(f'"{letra}" não pertence a S.')
